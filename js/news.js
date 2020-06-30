@@ -56,13 +56,14 @@
   };
 
   function divForAllNews(parentElement, data) {
-	const childElement = document.createElement('div');
+	const childElement = document.createElement('li');
 	const appendChildElement = parentElement.appendChild(childElement);
-	appendChildElement.setAttribute("class","news");
-	newsElement = document.createElement('span');
-	newsElement.innerHTML = data[0].date +": ";
-	newsElement.setAttribute("class","font-weight-bold mt-4 mb-3");
-	appendChildElement.appendChild(newsElement);
+	checkSquare = document.createElement('i');
+	checkSquare.setAttribute("class","fa-li fa fa-check-square");
+	appendChildElement.appendChild(checkSquare);
+	dateElement = document.createElement('h5');
+	dateElement.innerHTML = data[0].date +": ";
+	appendChildElement.appendChild(dateElement);
 	textenElement = document.createElement('span');
 	textenElement.innerHTML = data[0].texten;
 	textenElement.setAttribute("class","text blue-text text-status lang-en");
