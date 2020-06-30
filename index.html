@@ -39,7 +39,7 @@
 <body id="page-top" onload="displayRecruiting();displayPeople();displayNews(); getPublicationsAuthor('acte');">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <select class="selectpicker" data-width="fit">
+    <select class="selectpicker" data-width="fit" id="select-lang">
       <option data-content='<span class="flag-icon flag-icon-us"></span>'>English</option>
       <option data-content='<span class="flag-icon flag-icon-fr"></span>'>Français</option>
     </select>
@@ -132,7 +132,7 @@
 
  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="staff">
       <div class="w-100">
-<h2 class="mb-5 lang-en" id="people-container"> <span class="lang-en"> Staff </span> <span class="lang-fr"> Membres </span> </h2>
+<h2 class="mb-5 lang-en"> <span class="lang-en"> Staff </span> <span class="lang-fr"> Membres </span> </h2>
 <span class="lead mb-5 lang-en"> Permanent staff: </span>
 <span class="lead mb-5 lang-fr"> Membres permanents: </span>
     <ul>
@@ -198,6 +198,17 @@
 </ul>
       </div>
     </section>
+	
+  <section id="people" class="section gray-bg">
+	<div class="container" id="people-container">
+		<div class="row title text-center">
+	  <div class="col-lg-8 mx-auto">
+				  <h2 class="margin-top lang-en">People</h2>
+				<h2 class="margin-top lang-fr">Personnels du LASTIG</h2>
+	  </div>
+		</div>
+	</div>
+  </section>
 
  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="topics">
       <div class="w-100">
