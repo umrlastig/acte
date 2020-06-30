@@ -30,10 +30,13 @@
   <script src="vendor/d3/d3.min.js"></script>
   <script src="js/reviewing.js" charset="utf-8"></script>
   <script src="js/hal.js" charset="utf-8"></script>
+  <script src="js/papaparse.min.js"></script>
+  <script src="js/people.js"></script>
+  <script src="js/news.js"></script>
+  <script src="js/recruiting.js"></script>
 
 </head>
-
-<body id="page-top" onload="reviewingVis('reviewing.json'); getPublicationsAuthor('acte');">
+<body id="page-top" onload="displayRecruiting();displayPeople();displayNews(); getPublicationsAuthor('acte');">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <select class="selectpicker" data-width="fit">
@@ -58,6 +61,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#news"><span class="lang-en"> News </span> <span class="lang-fr"> Actualités </span></a>
+        </li>
+		<li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#recruiting"><span class="lang-en"> Job offers </span> <span class="lang-fr"> Offres d'emploi </span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#publications">Publications</a>
@@ -126,8 +132,7 @@
 
  <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="staff">
       <div class="w-100">
-<h2 class="mb-5 lang-en">Staff</h2>
-<h2 class="mb-5 lang-fr">Membres</h2>
+<h2 class="mb-5 lang-en" id="people-container"> <span class="lang-en"> Staff </span> <span class="lang-fr"> Membres </span> </h2>
 <span class="lead mb-5 lang-en"> Permanent staff: </span>
 <span class="lead mb-5 lang-fr"> Membres permanents: </span>
     <ul>
@@ -138,11 +143,11 @@
 <span class="lang-en"> senior researcher </span> <span class="lang-fr"> MCF HDR </span> </li>
     <li><a href="https://umrlastig.github.io/vgouet/">Valérie Gouet-Brunet</a>,
 <span class="lang-en"> MTES research director </span> <span class="lang-fr"> DR MTES </span> </li>
-    <li><a href="http://recherche.ign.fr/labos/matis/cv.php?nom=Lei&prenom=Manchun">Manchun Lei</a>,
+    <li><a href="https://umrlastig.github.io/manchun-lei/">Manchun Lei</a>,
 <span class="lang-en"> MTES researcher </span> <span class="lang-fr"> CR MTES </span> </li>
     <li><a href="http://loemi.recherche.ign.fr/cv.php?prenom=Olivier&nom=MARTIN">Olivier Martin</a>, <span class="lang-en"> research engineer </span> <span class="lang-fr"> ingénieur de recherches </span></li>
     <li><a href="http://loemi.recherche.ign.fr/cv.php?prenom=Christophe&nom=MEYNARD">Christophe Meynard</a>, <span class="lang-en"> research engineer </span> <span class="lang-fr"> ingénieur de recherches </span></li>
-    <li><a href="http://loemi.recherche.ign.fr/cv.php?prenom=Jean-Michael&nom=Muller">Jean-Michael Muller</a>, <span class="lang-en"> research engineer </span> <span class="lang-fr"> ingénieur de recherches </span></li>
+    <li><a href="https://umrlastig.github.io/jmmuller_lastig_homepage/">Jean-Michael Muller</a>, <span class="lang-en"> research engineer </span> <span class="lang-fr"> ingénieur de recherches </span></li>
     <li><a href="https://umrlastig.github.io/qdnguyen/">Quoc-Dinh Nguyen</a>,
 <span class="lang-en"> research engineer </span> <span class="lang-fr"> ingénieur de recherches </span> </li>
     <li><a href="http://recherche.ign.fr/labos/matis/cv.php?nom=Papelard&prenom=Jean-Pierre">Jean-Pierre Papelard</a>,
@@ -269,7 +274,7 @@
     <div class="w-100">
 		<h2 class="mb-5 lang-en">News</h2>
 		<h2 class="mb-5 lang-fr">Actualités</h2>
-        <ul class="fa-ul mb-0">
+        <ul class="fa-ul mb-0" id="news-container">
         <li>
             <i class="fa-li fa fa-check-square"></i>
 			<h5> 08/11/19:
@@ -302,6 +307,17 @@
 			<p class="lang-fr"> Participation et présentation donnée sur le thème "Creating digital twins of cities: from data acquisition to 3D modeling" à la réunion annuelle 2020 du <a href="http://www.trb.org/AnnualMeeting/AnnualMeeting.aspx"> Transportation Research Board (TRB) </a> </p>
 			</h5>
         </li>
+        </ul>
+	</div>
+</section>
+
+    <hr class="m-0">
+	
+<section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="recruiting">
+    <div class="w-100">
+		<h2 class="mb-5 lang-en">Job offers</h2>
+		<h2 class="mb-5 lang-fr">Offres d'emploi</h2>
+        <ul class="fa-ul mb-0" id="recruiting-container">
         </ul>
 	</div>
 </section>
