@@ -37,7 +37,7 @@
 				header: true,
 				step: function(row) {
 					if(row.data[0].date){
-						if(row.data[0].team="ACTE"){
+						if(row.data[0].team=="ACTE"){
 						var parent = document.getElementById("news-container");
 						divForAllNews(parent, row.data);}
 					}
@@ -60,7 +60,7 @@
 	const appendChildElement = parentElement.appendChild(childElement);
 	appendChildElement.setAttribute("class","news");
 	newsElement = document.createElement('span');
-	newsElement.innerHTML = data[0].date +" ["+ data[0].team + "]: ";
+	newsElement.innerHTML = data[0].date +": ";
 	newsElement.setAttribute("class","font-weight-bold mt-4 mb-3");
 	appendChildElement.appendChild(newsElement);
 	textenElement = document.createElement('span');
