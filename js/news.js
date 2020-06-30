@@ -62,7 +62,7 @@
 	checkSquare.setAttribute("class","fa-li fa fa-check-square");
 	appendChildElement.appendChild(checkSquare);
 	dateElement = document.createElement('span');
-	checkSquare.setAttribute("class","text-primary");
+	dateElement.setAttribute("class","text-primary");
 	dateElement.innerHTML = "["+data[0].date +"]: ";
 	appendChildElement.appendChild(dateElement);
 	textenElement = document.createElement('span');
