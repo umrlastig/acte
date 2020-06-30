@@ -65,3 +65,9 @@ body.fr :lang(en){
 .text-status{
   font-size: 95%;
 }
+
+.news {
+  color: black;
+  font-size: 120%;
+  font: economica
+}

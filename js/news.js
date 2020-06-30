@@ -61,8 +61,9 @@
 	checkSquare = document.createElement('i');
 	checkSquare.setAttribute("class","fa-li fa fa-check-square");
 	appendChildElement.appendChild(checkSquare);
-	dateElement = document.createElement('h5');
-	dateElement.innerHTML = data[0].date +": ";
+	dateElement = document.createElement('span');
+	checkSquare.setAttribute("class","text-primary");
+	dateElement.innerHTML = "["+data[0].date +"]: ";
 	appendChildElement.appendChild(dateElement);
 	textenElement = document.createElement('span');
 	textenElement.innerHTML = data[0].texten;
