@@ -37,8 +37,10 @@
 				header: true,
 				step: function(row) {
 					if(row.data[0].firstname.localeCompare("") != 0){
-						var parent = document.getElementById("people-container");
-						divForAllPeople(parent, row.data);}
+						if(row.data[0].team == "ACTE"){
+							var parent = document.getElementById("people-container");
+							divForAllPeople(parent, row.data);}
+						}
 					},
 				complete: function() {
 					var classes = [".lang-fr", ".lang-en"];
