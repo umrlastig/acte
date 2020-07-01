@@ -38,27 +38,9 @@ function parseCSVfile() {
 			step: function(row) {
 				// console.log("Row:", row.data);
 				if(row.data[0].type != ""){
-					if(row.data[0].type == "EC") {
-						var parent = document.getElementById("ec-offers");
+					var parent = document.getElementById("offers");
+					if(row.data[0].team == "ACTE"){
 						divForJob(parent, row.data);
-					}
-					else if(row.data[0].type == "PhD"){
-						var parent = document.getElementById("phd-offers");
-						divForJob(parent, row.data);
-					}
-					else if(row.data[0].type == "postdoc"){
-						var parent = document.getElementById("postdoc-offers");
-						divForJob(parent, row.data);
-					}
-					else if(row.data[0].type == "ingenieur"){
-						var parent = document.getElementById("inge-offers");
-						divForJob(parent, row.data);
-					}
-					else{
-						if(row.data[0].team == "ACTE"){
-							var parent = document.getElementById("intern");
-							divForJob(parent, row.data);
-						}
 					}
 				}
 
@@ -81,41 +63,47 @@ function parseCSVfile() {
 
 function divForJob(parentElement, data) {
 	// first remove the "no offer" line if still present
-	// if (parentElement.firstElementChild.nodeName == "H5") {
-	// 	parentElement.firstElementChild.remove();
-	// }
-	// console.log(parentElement.nodeName);
 	for (var i=0; i < parentElement.childNodes.length; i++) {
-		// console.log(parentElement.childNodes[i].nodeName);
         if (parentElement.childNodes[i].nodeName == "H5") {
         	parentElement.childNodes[i].remove();
         }
     }
 
-
-	const childElement = document.createElement('a');
+	const childElement = document.createElement('li');
 	const appendChildElement = parentElement.appendChild(childElement);
-	appendChildElement.setAttribute("class","list-group-item list-group-item-info lang-fr");
-	appendChildElement.setAttribute("href", data[0].pdf_fr);
-	appendChildElement.innerHTML = data[0].titre+"  ";
+	checkSquare = document.createElement('i');
+	if(data[0].filled == "true") {
+		checkSquare.setAttribute("class","fa-li fa fa-check-square");
+	}
+	else {
+		checkSquare.setAttribute("class","fa-li fa fa-square");
+	}
+	appendChildElement.appendChild(checkSquare);
+	typeElement = document.createElement('span');
+	typeElement.setAttribute("class","text-primary");
+	typeElement.innerHTML = "["+data[0].type +"]: ";
+	appendChildElement.appendChild(typeElement);
 	
-	const childElementEn = document.createElement('a');
-	const appendChildElementEn = parentElement.appendChild(childElementEn);
-	appendChildElementEn.setAttribute("class","list-group-item list-group-item-info lang-en");
-	appendChildElementEn.setAttribute("href", data[0].pdf_en);
-	appendChildElementEn.innerHTML = data[0].title+"  ";
-
+	textenElement = document.createElement('span');
+	textenElement.innerHTML = data[0].title;
+	textenElement.setAttribute("class","text blue-text text-status lang-en");
+	textenElement.setAttribute("href", data[0].pdf_en);
+	appendChildElement.appendChild(textenElement);
+	textfrElement = document.createElement('span');
+	textfrElement.innerHTML = data[0].titre;
+	textfrElement.setAttribute("class","text blue-text text-status lang-fr");
+	textfrElement.setAttribute("href", data[0].pdf_fr);
+	appendChildElement.appendChild(textfrElement);
 	if(data[0].filled == "true") {
 		const filledElementEn = document.createElement('span');
-		filledElementEn.innerHTML = "filled offer";
+		filledElementEn.innerHTML = " (offer already filled)";
 		filledElementEn.setAttribute("class","label label-success lang-en");
-		appendChildElementEn.appendChild(filledElementEn);
+		appendChildElement.appendChild(filledElementEn);
 		const filledElement = document.createElement('span');
-		filledElement.innerHTML = "offre pourvue";
+		filledElement.innerHTML = " (offre déjà pourvue)";
 		filledElement.setAttribute("class","label label-success lang-fr");
 		appendChildElement.appendChild(filledElement);
 	}
-	//appendChildElement.innerHTML = data[0].status;
 };
 
 var displayRecruiting = function(){
