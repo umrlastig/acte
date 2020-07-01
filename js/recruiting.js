@@ -80,28 +80,28 @@ function divForJob(parentElement, data) {
 	}
 	appendChildElement.appendChild(checkSquare);
 	typeElement = document.createElement('span');
-	typeElement.setAttribute("class","text-primary");
+	// typeElement.setAttribute("class","text-primary");
 	typeElement.innerHTML = "["+data[0].type +"]: ";
 	appendChildElement.appendChild(typeElement);
 	
-	textenElement = document.createElement('span');
+	textenElement = document.createElement('a');
 	textenElement.innerHTML = data[0].title;
-	textenElement.setAttribute("class","text blue-text text-status lang-en");
+	textenElement.setAttribute("class","lang-en");
 	textenElement.setAttribute("href", data[0].pdf_en);
 	appendChildElement.appendChild(textenElement);
-	textfrElement = document.createElement('span');
+	textfrElement = document.createElement('a');
 	textfrElement.innerHTML = data[0].titre;
-	textfrElement.setAttribute("class","text blue-text text-status lang-fr");
+	textfrElement.setAttribute("class","lang-fr");
 	textfrElement.setAttribute("href", data[0].pdf_fr);
 	appendChildElement.appendChild(textfrElement);
 	if(data[0].filled == "true") {
 		const filledElementEn = document.createElement('span');
 		filledElementEn.innerHTML = " (offer already filled)";
-		filledElementEn.setAttribute("class","label label-success lang-en");
+		// filledElementEn.setAttribute("class","text-primary lang-en");
 		appendChildElement.appendChild(filledElementEn);
 		const filledElement = document.createElement('span');
 		filledElement.innerHTML = " (offre déjà pourvue)";
-		filledElement.setAttribute("class","label label-success lang-fr");
+		// filledElement.setAttribute("class","text-primary lang-fr");
 		appendChildElement.appendChild(filledElement);
 	}
 };
