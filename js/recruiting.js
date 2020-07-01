@@ -38,7 +38,7 @@ function parseCSVfile() {
 			step: function(row) {
 				// console.log("Row:", row.data);
 				if(row.data[0].type != ""){
-					var parent = document.getElementById("offers");
+					var parent = document.getElementById("offers-container");
 					if(row.data[0].team == "ACTE"){
 						divForJob(parent, row.data);
 					}
