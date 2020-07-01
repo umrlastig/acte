@@ -56,19 +56,7 @@ function parseCSVfile() {
 					}
 					else{
 						if(row.data[0].team == "ACTE"){
-							var parent = document.getElementById("intern-acte");
-							divForJob(parent, row.data);
-						}
-						else if(row.data[0].team == "MEIG"){
-							var parent = document.getElementById("intern-meig");
-							divForJob(parent, row.data);
-						}
-						else if(row.data[0].team == "STRUDEL"){
-							var parent = document.getElementById("intern-strudel");
-							divForJob(parent, row.data);
-						}
-						else if(row.data[0].team == "GEOVIS"){
-							var parent = document.getElementById("intern-geovis");
+							var parent = document.getElementById("intern");
 							divForJob(parent, row.data);
 						}
 					}
