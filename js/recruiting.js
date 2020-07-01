@@ -97,11 +97,11 @@ function divForJob(parentElement, data) {
 	if(data[0].filled == "true") {
 		const filledElementEn = document.createElement('span');
 		filledElementEn.innerHTML = " (offer already filled)";
-		// filledElementEn.setAttribute("class","text-primary lang-en");
+		filledElementEn.setAttribute("class","lang-en");
 		appendChildElement.appendChild(filledElementEn);
 		const filledElement = document.createElement('span');
 		filledElement.innerHTML = " (offre déjà pourvue)";
-		// filledElement.setAttribute("class","text-primary lang-fr");
+		filledElement.setAttribute("class","lang-fr");
 		appendChildElement.appendChild(filledElement);
 	}
 };
