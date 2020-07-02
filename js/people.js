@@ -38,7 +38,15 @@
 				step: function(row) {
 					if(row.data[0].firstname.localeCompare("") != 0){
 						if(row.data[0].team == "ACTE"){
-							var parent = document.getElementById("people-container");
+							var parent = document.getElementById("permanent-container");
+							if(data[0].end_date != ''){
+								var parent = document.getElementById("alumni-container");
+							} else {
+								var st = data[0].statut
+								if(st == 'Doctorant' || st == 'Doctorant' || st == 'Post-doc'){
+									var parent = document.getElementById("non-permanent-container");
+								}
+							}
 							divForAllPeople(parent, row.data);}
 						}
 					},
