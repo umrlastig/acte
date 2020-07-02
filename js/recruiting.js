@@ -85,11 +85,11 @@ function divForJob(parentElement, data) {
 	appendChildElement.appendChild(typeElement);
 	
 	if(data[0].filled == "true") {
-		textenElement = document.createElement('a');
-		textfrElement = document.createElement('a');
-	} else {
 		textenElement = document.createElement('s');
 		textfrElement = document.createElement('s');
+	} else {
+		textenElement = document.createElement('a');
+		textfrElement = document.createElement('a');
 	}
 	textenElement.innerHTML = data[0].title;
 	textenElement.setAttribute("class","lang-en");
