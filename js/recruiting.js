@@ -84,12 +84,17 @@ function divForJob(parentElement, data) {
 	typeElement.innerHTML = "["+data[0].type +"]: ";
 	appendChildElement.appendChild(typeElement);
 	
-	textenElement = document.createElement('a');
+	if(data[0].filled == "true") {
+		textenElement = document.createElement('a');
+		textfrElement = document.createElement('a');
+	} else {
+		textenElement = document.createElement('s');
+		textfrElement = document.createElement('s');
+	}
 	textenElement.innerHTML = data[0].title;
 	textenElement.setAttribute("class","lang-en");
 	textenElement.setAttribute("href", data[0].pdf_en);
 	appendChildElement.appendChild(textenElement);
-	textfrElement = document.createElement('a');
 	textfrElement.innerHTML = data[0].titre;
 	textfrElement.setAttribute("class","lang-fr");
 	textfrElement.setAttribute("href", data[0].pdf_fr);
