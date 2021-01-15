@@ -37,13 +37,17 @@
 				header: true,
 				step: function(row) {
 					if(row.data[0].firstname.localeCompare("") != 0){
-						if(row.data[0].team == "ACTE"){
+						if(row.data[0].team == "ACTE" && row.data[0].member == 'true'){
 							var parent = document.getElementById("permanent-container");
-							if(row.data[0].end_date != ''){
-								var parent = document.getElementById("alumni-container");
-							} else {
-								if(row.data[0].statut == 'Doctorant' || row.data[0].statut == 'Doctorante' || row.data[0].statut == 'Post-doc'){
-									var parent = document.getElementById("non-permanent-container");
+							if (row.data[0].end_date != ''){
+								var d1 = new Date();
+								var d2 = new Date(row.data[0].end_date);
+								if (d2.getTime() < d1.getTime()) {
+									var parent = document.getElementById("alumni-container");
+								} else {
+									if(row.data[0].statut == 'Doctorant' || row.data[0].statut == 'Doctorante' || row.data[0].statut == 'Post-doc'){
+										var parent = document.getElementById("non-permanent-container");
+									}
 								}
 							}
 							divForAllPeople(parent, row.data);}
